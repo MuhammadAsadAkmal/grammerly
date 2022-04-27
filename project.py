@@ -1,13 +1,23 @@
-import language_tool_python
+# **********Group members *********
+# Shoaib ur rehman
+# summiya nawaz
+# bilal ahmed
+# *******************************
 
-# import pandas as pd
+import language_tool_python
 
 tool = language_tool_python.LanguageTool("en-US")
 
 
-with open("sample-2mb-text-file.txt", "r") as f:
-    data = f.readlines()
-matches = tool.correct(data)
+data = input("Enter text: ")
+matches = tool.check(data)
 
-
-print(matches)
+for i in range(len(matches)):
+    print("****************************")
+    print("Mistake no " + str(i + 1))
+    print("****************************")
+    print(matches[i])
+print("****************************")
+print("Correct Sentence")
+print(tool.correct(data))
+print("****************************")
